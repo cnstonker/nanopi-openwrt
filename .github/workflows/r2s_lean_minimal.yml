@@ -1,13 +1,15 @@
 name: r2s Lean版openwrt minimal 
 
 on:
-  push:
-    branches:
-      - master
-    paths:
-      - '.github/workflows/r2s_lean_minimal.yml'
-  schedule:
-    - cron: '10 08 * * *'
+  watch:
+    types: started
+  #push:
+  #  branches:
+  #    - master
+  #  paths:
+  #    - '.github/workflows/r2s_lean_minimal.yml'
+  #schedule:
+  #  - cron: '10 08 * * *'
 
 jobs:
 
@@ -72,7 +74,7 @@ jobs:
           CONFIG_PACKAGE_pigz=y
           CONFIG_PACKAGE_unzip=y
           CONFIG_PACKAGE_losetup=y
-          CONFIG_PACKAGE_luci-app-frpc=y
+          # CONFIG_PACKAGE_luci-app-frpc is not set
           CONFIG_PACKAGE_luci-app-netdata=y
           CONFIG_LIBSODIUM_MINIMAL=y
           CONFIG_PACKAGE_ddns-scripts_aliyun=y
@@ -86,25 +88,25 @@ jobs:
           CONFIG_PACKAGE_luci-app-ssr-plus_INCLUDE_V2ray=y
           CONFIG_PACKAGE_luci-app-ssr-plus_INCLUDE_V2ray_plugin=y
           CONFIG_PACKAGE_luci-app-ssrserver-python=y
-          CONFIG_PACKAGE_luci-app-uhttpd=y
-          CONFIG_PACKAGE_luci-app-unblockmusic=y
-          CONFIG_PACKAGE_luci-app-v2ray-server=y
-          CONFIG_PACKAGE_luci-app-vssr=y
+          # CONFIG_PACKAGE_luci-app-uhttpd is not set
+          # CONFIG_PACKAGE_luci-app-unblockmusic is not set
+          # CONFIG_PACKAGE_luci-app-v2ray-server is not set
+          # CONFIG_PACKAGE_luci-app-vssr is not set
           CONFIG_PACKAGE_luci-theme-argon=y
           CONFIG_PACKAGE_luci-theme-material=y
-          CONFIG_PACKAGE_luci-theme-netgear=y
-          CONFIG_PACKAGE_luci-app-unblockmusic=y
+          # CONFIG_PACKAGE_luci-theme-netgear is not set
+          # CONFIG_PACKAGE_luci-app-unblockmusic is not set
           CONFIG_PACKAGE_kmod-rtl8xxxu=y
-          CONFIG_UnblockNeteaseMusic_Go=y
-          CONFIG_UnblockNeteaseMusic_NodeJS=y
+          # CONFIG_UnblockNeteaseMusic_Go is not set
+          # CONFIG_UnblockNeteaseMusic_NodeJS is not set
           CONFIG_PACKAGE_luci-app-passwall=y
           CONFIG_PACKAGE_luci-app-passwall_INCLUDE_Brook=y
           CONFIG_PACKAGE_luci-app-passwall_INCLUDE_Shadowsocks=y
           CONFIG_PACKAGE_luci-app-passwall_INCLUDE_Trojan=y
           CONFIG_PACKAGE_luci-app-passwall_INCLUDE_simple-obfs=y
           CONFIG_PACKAGE_luci-app-passwall_INCLUDE_v2ray-plugin=y
-          CONFIG_PACKAGE_luci-app-openclash=y
-          CONFIG_PACKAGE_luci-app-zerotier=y
+          # CONFIG_PACKAGE_luci-app-openclash is not set
+          # CONFIG_PACKAGE_luci-app-zerotier is not set
           # CONFIG_PACKAGE_luci-app-accesscontrol is not set
           # CONFIG_PACKAGE_luci-app-nlbwmon is not set
           # CONFIG_PACKAGE_nlbwmon is not set
@@ -114,7 +116,7 @@ jobs:
           # CONFIG_PACKAGE_luci-app-sqm is not set
           # CONFIG_PACKAGE_luci-app-ssr-python-pro-server is not set
           # CONFIG_PACKAGE_luci-app-v2ray-server is not set
-          # CONFIG_PACKAGE_luci-app-vsftpd is not set
+          CONFIG_PACKAGE_luci-app-vsftpd=y
           # CONFIG_PACKAGE_luci-app-vssr_INCLUDE_ShadowsocksR_Socks is not set
           # CONFIG_TARGET_ROOTFS_TARGZ is not set
           # CONFIG_OPENSSL_ENGINE_BUILTIN_DEVCRYPTO is not set
@@ -164,15 +166,6 @@ jobs:
           mv ../../scripts/check_wan4.sh package/base-files/files/usr/bin && sed -i '/exit/i\/bin/sh /usr/bin/check_wan4.sh &' package/base-files/files/etc/rc.local
           mv ../../scripts/autoupdate.sh package/base-files/files/root/au.sh && chmod +x package/base-files/files/root/au.sh
           echo -e '\nDYC Build\n' >> package/base-files/files/etc/banner
-
-      - name: Add OpenClash
-        run: |
-          git clone -b master https://github.com/vernesong/OpenClash.git 
-          mv OpenClash/luci-app-openclash friendlywrt-rk3328/friendlywrt/package
-          cd friendlywrt-rk3328/friendlywrt/package/base-files/files
-          mkdir -p etc/openclash/core && cd etc/openclash/core
-          curl -L https://github.com/vernesong/OpenClash/releases/download/Clash/clash-linux-armv8.tar.gz | tar zxf -
-          chmod +x clash
 
       - name: Add Passwall
         run: |
