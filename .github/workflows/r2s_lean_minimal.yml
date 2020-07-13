@@ -79,14 +79,14 @@ jobs:
           CONFIG_LIBSODIUM_MINIMAL=y
           CONFIG_PACKAGE_ddns-scripts_aliyun=y
           CONFIG_PACKAGE_ddns-scripts_cloudflare.com-v4=y
-          CONFIG_PACKAGE_luci-app-ssr-plus=y
-          CONFIG_PACKAGE_luci-app-ssr-plus_INCLUDE_DNS2SOCKS=y
-          CONFIG_PACKAGE_luci-app-ssr-plus_INCLUDE_Redsocks2=y
-          CONFIG_PACKAGE_luci-app-ssr-plus_INCLUDE_Shadowsocks=y
-          CONFIG_PACKAGE_luci-app-ssr-plus_INCLUDE_Simple_obfs=y
-          CONFIG_PACKAGE_luci-app-ssr-plus_INCLUDE_Trojan=y
-          CONFIG_PACKAGE_luci-app-ssr-plus_INCLUDE_V2ray=y
-          CONFIG_PACKAGE_luci-app-ssr-plus_INCLUDE_V2ray_plugin=y
+          # CONFIG_PACKAGE_luci-app-ssr-plus is not set
+          # CONFIG_PACKAGE_luci-app-ssr-plus_INCLUDE_DNS2SOCKS is not set
+          # CONFIG_PACKAGE_luci-app-ssr-plus_INCLUDE_Redsocks2 is not set
+          # CONFIG_PACKAGE_luci-app-ssr-plus_INCLUDE_Shadowsocks is not set
+          # CONFIG_PACKAGE_luci-app-ssr-plus_INCLUDE_Simple_obfs is not set
+          # CONFIG_PACKAGE_luci-app-ssr-plus_INCLUDE_Trojan is not set
+          # CONFIG_PACKAGE_luci-app-ssr-plus_INCLUDE_V2ray is not set
+          # CONFIG_PACKAGE_luci-app-ssr-plus_INCLUDE_V2ray_plugin is not set
           CONFIG_PACKAGE_luci-app-ssrserver-python=y
           # CONFIG_PACKAGE_luci-app-uhttpd is not set
           # CONFIG_PACKAGE_luci-app-unblockmusic is not set
