@@ -87,7 +87,7 @@ jobs:
           # CONFIG_PACKAGE_luci-app-ssr-plus_INCLUDE_Trojan is not set
           # CONFIG_PACKAGE_luci-app-ssr-plus_INCLUDE_V2ray is not set
           # CONFIG_PACKAGE_luci-app-ssr-plus_INCLUDE_V2ray_plugin is not set
-          CONFIG_PACKAGE_luci-app-ssrserver-python=y
+          # CONFIG_PACKAGE_luci-app-ssrserver-python is not set
           # CONFIG_PACKAGE_luci-app-uhttpd is not set
           # CONFIG_PACKAGE_luci-app-unblockmusic is not set
           # CONFIG_PACKAGE_luci-app-v2ray-server is not set
